@@ -1,0 +1,116 @@
+a,body{color:#000}
+.ui-article-list a,.ui-lotterys .name{text-overflow:ellipsis;overflow:hidden}
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body,html{font-family:sans-serif}
+article,aside,blockquote,body,button,code,dd,details,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0}
+button,input,select,textarea{color:inherit;outline:0;font-family:inherit;font-size:100%;-webkit-appearance:none}
+button,input[type=button],input[type=reset],input[type=submit]{cursor:pointer;-webkit-appearance:button}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{-webkit-box-sizing:border-box;box-sizing:border-box;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+abbr,acronym{border:0;font-variant:normal}
+del{text-decoration:line-through}
+address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}
+ol,ul{list-style:none}
+caption,th{text-align:left}
+.ball,.ui-article-detail .info,.ui-down .btns,.ui-footer,.ui-header .wrap,.ui-lotterys,.ui-qr .tip{text-align:center}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}
+q:after,q:before{content:''}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+body{font:12px/1.5 'PingFang SC','Helvetica Neue',Helvetica,'Hiragino Sans GB',STHeitiSC-Light,'Microsoft YaHei',Arial,sans-serif;background-color:#eee}
+a:hover{outline:0;color:#f60}
+a,ins{text-decoration:none}
+.c:after,.c:before{display:table;content:''}
+.c:after{clear:both}
+.c{*zoom:1}
+.clear{clear:both}
+.viewport{max-width:15rem;margin:0 auto}
+.part{margin-bottom:.3rem;background-color:#fff}
+.ui-results .result,.ui-results .title{margin-bottom:.4rem}
+.ball{display:inline-block;width:1.2rem;height:1.2rem;line-height:1.2rem;font-style:normal;font-size:1.25em;vertical-align:middle;color:#ff8585;border:1px solid #ff8585;border-radius:50%}
+.ball.blue{color:#b085ff;border-color:#b085ff}
+.ui-header{height:1.6rem}
+.ui-header .wrap{position:fixed;width:15rem;height:1.6rem;top:0;background-color:#f26921;z-index:99999}
+.ui-header .logo{display:inline-block;margin-top:.2rem}
+.ui-header .logo img{height:1.2rem;vertical-align:top}
+.ui-header .btn-refresh{position:absolute;top:.3rem;right:.4rem}
+.ui-header .btn-down{position:absolute;top:.3rem;right:2rem;padding:0 1em;font-size:.6rem;color:#fff;border:1px solid #fff;border-radius:.16rem}
+.ui-header .ico-refresh{display:inline-block;width:1rem;height:1rem;vertical-align:top;background-repeat: no-repeat;}
+.ui-lotterys{padding:.7rem .4rem}
+.ui-lotterys li{float:left;width:20%}
+.ui-lotterys a{display:block}
+.ui-lotterys img{width:2rem;height:2rem;vertical-align:top}
+.ui-lotterys .name{display:block;white-space:nowrap}
+.ui-results .item{border-bottom:1px solid #c4c4c4;padding:.4rem .4rem .4rem .7rem}
+.ui-article-list a,.ui-title{border-bottom:1px solid #c4c4c4;padding:0 .8rem}
+.ui-results .lottery{font-size:1.25em;margin-right:1em}
+.ui-results .date,.ui-results .no{color:#aaa;font-size:.833em}
+.ui-results .no{margin-right:1em}
+.ui-results .numbers{font-size:1.25em;color:#888}
+.ui-results .try{margin-left:1em;color:#aaa}
+.ui-results .day{float:left;font-size:.833em;color:#aaa}
+.ui-results .total{float:right;font-size:.833em;color:#aaa}
+.ui-down{height:2rem}
+.ui-down .btns{position:fixed;width:15rem;height:2rem;font-size:1.25em;line-height:2rem;bottom:0;background-color:#f26921;z-index:99999}
+.ui-down .btns a{float:left;width:50%;color:#fff}
+.ui-down .btns a:active{background-color:#fe7d3a}
+.ui-down .btns::after{content:'';position:absolute;left:50%;top:.4rem;bottom:.4rem;border-left:1px solid #fff}
+.ui-down .ico-android,.ui-down .ico-ios{display:inline-block;width:1rem;height:1rem;vertical-align:middle;margin-right:.5rem}
+.ui-down .ico-ios{background-repeat: no-repeat;}
+.ui-down .ico-android{background-repeat: no-repeat;}
+.ui-title{height:1.6rem;line-height:1.6rem}
+.ui-title h1{float:left;font-size:1.25em;color:#ff8585}
+.ui-title .more{float:right;color:#aaa}
+.ui-article-list{line-height:1.6rem;white-space:nowrap}
+.ui-article-list a{display:block}
+.ui-article-list a:active{background-color:#f5f5f5}
+.ui-article-detail{padding:1.4rem 1rem}
+.ui-article-detail h1{font-size:2em;line-height:1.2}
+.ui-article-detail .info{width:6rem;margin:1rem auto 1.4rem;padding-bottom:.4rem;border-bottom:1px solid #000}
+.ui-article-detail .content{font-size:1.25em;line-height:1.75;word-break:break-all}
+.ui-article-detail .content .pic-box,.ui-article-detail .content .pic-small,.ui-article-detail .content .video-box,.ui-article-detail .content .video-player,.ui-article-detail .content p{margin-bottom:1.5em}
+.ui-article-detail .content p:last-child{margin-bottom:0}
+.ui-article-detail .content img{width:100%;vertical-align:top}
+.ui-footer{padding:.6rem 0}
+.ui-down-banner{position:relative;height:2.6rem}
+.ui-down-banner .logo{float:left;width:2rem;height:2rem;padding:.3rem .8rem;background:url('../img/caipiao/logo-bg.png') no-repeat;-webkit-background-size:contain;background-size:contain}
+.ui-down-banner .logo img{width:100%;height:100%;vertical-align:top}
+.ui-down-banner .intro{padding-top:.4rem;margin:0 4.6rem 0 3.6rem}
+.ui-down-banner .name{font-size:1.25em}
+.ui-down-banner .desc{color:#f26921}
+.ui-down-banner .btn-down{position:absolute;right:.8rem;top:50%;width:3.2rem;height:1.2rem;line-height:1.2rem;margin-top:-.6rem;border:1px solid #f26921;font-size:1.143em;color:#f26921;text-align:center;border-radius:.16rem;-webkit-box-shadow:0 .3rem .7rem rgba(255,175,135,.5);box-shadow:0 .3rem .7rem rgba(255,175,135,.5)}
+.ui-down-banner .btn-down:active{background-color:#f5f5f5}
+.ui-qr{display:none;position:fixed;left:50%;top:3rem;margin-left:8.1rem}
+.ui-qr .ios{margin-bottom:2rem}
+.ui-qr .qr{width:150px;padding:5px;background-color:#fff}
+.ui-qr .tip{font-size:1.143em;color:#000}
+.ui-qr .tip em{color:#f26921}
+.pc .ui-qr{display:block}
+
+
+
+
+
+
+
+
+
+
+
+
+.ui-header .ico-refresh{background-position:0rem 0rem}.ui-down .ico-ios{background-position:0rem -1.4rem}.ui-down .ico-android{background-position:0rem -2.8rem}.ui-header .ico-refresh,.ui-down .ico-ios,.ui-down .ico-android{background-size: 1rem 3.8rem;background-image: url(../img/caipiao/pkg/mobile_1_z.png)}@media  screen and (min-width:1152px){.ui-qr{display:block}}@media  screen and (min-width:320px){html{font-size:21.33px}
+body{font-size:12px}}@media  screen and (min-width:360px){html{font-size:24px}
+body{font-size:12px}}@media  screen and (min-width:375px){html{font-size:25px}
+body{font-size:12px}}@media  screen and (min-width:384px){html{font-size:25.6px}
+body{font-size:14px}}@media  screen and (min-width:400px){html{font-size:26.67px}
+body{font-size:14px}}@media  screen and (min-width:414px){html{font-size:27.6px}
+body{font-size:14px}}@media  screen and (min-width:424px){html{font-size:28.27px}
+body{font-size:14px}}@media  screen and (min-width:480px){html{font-size:32px}
+body{font-size:15.36px}}@media  screen and (min-width:540px){html{font-size:36px}
+body{font-size:17.28px}}@media  screen and (min-width:720px){html{font-size:48px}
+body{font-size:23.04px}}@media  screen and (min-width:750px){html{font-size:50px}
+body{font-size:24px}}@media  screen and (min-width:768px){html{font-size:50px}
+body{font-size:12px}}

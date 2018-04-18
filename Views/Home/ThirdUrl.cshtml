@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=62503345" charset="UTF-8"></script>
+    <script type="text/javascript">
+
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan style='display:none;' id='cnzz_stat_icon_1262178100'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1262178100' type='text/javascript'%3E%3C/script%3E"));
+        document.getElementById("cnzz_stat_icon_1262178100").style.display = "none";
+    </script>
+
+</head>
+<body>
+    <script>
+        window.location.href='@(new HtmlString((string)ViewBag.url))';
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿
+@using CommonModel.Models;
+@{
+    
+    Layout = "~/Views/Shared/C6Lottery_Layout.cshtml";
+}
+@section Head{
+
+}
+@{
+    LotDetail model = ViewBag.model;
+    if (!string.IsNullOrEmpty(model.url))
+    {
+        	<!-- article -->
+        <article class="ui-article-detail">
+            <h1>@(HttpUtility.HtmlDecode(model.title))</h1>
+            <div class="info">
+                @(model.date.ToString("yyyy-MM-dd"))
+            </div>
+            <div class="content">
+                @(new HtmlString((string)model.body))
+            </div>
+        </article>
+        <!-- /article -->
+    }
+
+
+}
+@section Foot{
+}

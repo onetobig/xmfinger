@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "文档中心_厦门指尖互动 - 企业一站式渠道营销与服务";
+    ViewBag.Menu = "document";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int doc = (int)ViewBag.id;
+    string iosdocurl = doc == 2 ?  "http://file.tuling99.com/addoc/指尖互动IDFA接口说明tuling99.pdf" : "http://file.tuling99.com/addoc/指尖互动IDFA接口说明xmfinger.pdf" ;
+    string docurl = "http://file.tuling99.com/addoc/渠道apk打包规范.pdf";
+}
+@section Head{
+    <link rel="stylesheet" type="text/css" href="/static/css/document_131d637.css" />
+}
+<!-- ios -->
+<div class="part part-ios animation">
+    <div class="wrap">
+        <img src="/static/img/system/ios_6e58e6a.png" class="pic" alt="IOS应用市场推广">
+        <div class="content">
+            <div class="title">IOS应用市场推广</div>
+            <p class="desc">将APP上架指尖助手，投放优质推荐位，获得更多产品曝光，快速增加用户数</p>
+            <div class="line"></div>
+            <ul class="ui-guide">
+                <li><span>下载文档</span></li>
+                <li><span>服务端接口开发</span></li>
+                <li><span>产品上架</span></li>
+            </ul>
+            <a href="@iosdocurl" class="down"><i class="ico-ios"></i>下载文档</a>
+        </div>
+    </div>
+</div>
+<!-- /ios -->
+<!-- android -->
+<div class="part part-android animation">
+    <div class="wrap">
+        <img src="/static/img/system/android_17fef0e.png" class="pic" alt="android应用市场推广">
+        <div class="content">
+            <div class="title">安卓机刷业务</div>
+            <p class="desc">提升APP在各大安卓市场的排名。技术实力刷榜，拥有稳定真实的机刷渠道，覆盖热搜榜、免费榜、付费榜</p>
+            <div class="line"></div>
+            <ul class="ui-guide">
+                <li><span>下载文档</span></li>
+                <li><span>客户端集成</span></li>
+                <li><span>开始使用</span></li>
+            </ul>
+            <a href="@docurl" class="down"><i class="ico-android"></i>下载文档</a>
+        </div>
+    </div>
+</div>
+<!-- /android -->
+@section Foot{
+
+    <script>
+        require('document')
+    </script>
+}

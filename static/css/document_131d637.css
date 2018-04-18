@@ -1,0 +1,29 @@
+.part .down,.ui-guide li,.ui-guide span{display:inline-block}
+.part{position:relative;height:885px}
+.part .wrap{max-width:1280px;margin:0 auto}
+.part .pic{float:left}
+.part .content{color:#fff;margin:0 60px 0 680px}
+.part .title{margin-top:50px;font-size:60px}
+.part .desc,.part .down,.ui-guide{font-size:22px}
+.part .line{margin-top:20px;height:2px;width:160px;background-color:#fff}
+.part .down{margin-top:95px;color:#fff;height:32px;padding:19px;border:2px solid #fff;-webkit-transition:background-color .2s;transition:background-color .2s}
+.part .down:hover{background-color:rgba(255,255,255,.3)}
+.part .ico-android,.part .ico-ios{display:inline-block;vertical-align:text-bottom;margin-right:5px;width:32px;height:32px}
+.part .ico-ios{background-repeat: no-repeat;}
+.part .ico-android{background-repeat: no-repeat;}
+.part.animation .pic{-webkit-animation:fade-in 2s .2s both paused;animation:fade-in 2s .2s both paused}
+.part.animation .title{-webkit-animation:down-in 1s .4s both paused;animation:down-in 1s .4s both paused}
+.part.animation .desc{-webkit-animation:down-in 1s .6s both paused;animation:down-in 1s .6s both paused}
+.part.animation .line{-webkit-animation:fade-in 1.5s .9s both paused;animation:fade-in 1.5s .9s both paused}
+.part.animation .ui-guide li:nth-child(1){-webkit-animation:left-in 1s 1.2s both paused;animation:left-in 1s 1.2s both paused}
+.part.animation .ui-guide li:nth-child(2){-webkit-animation:left-in 1s 1.4s both paused;animation:left-in 1s 1.4s both paused}
+.part.animation .ui-guide li:nth-child(3){-webkit-animation:left-in 1s 1.6s both paused;animation:left-in 1s 1.6s both paused}
+.part.animation .down{-webkit-animation:down-in 1.5s 1.8s both paused;animation:down-in 1.5s 1.8s both paused}
+.part.animationed .desc,.part.animationed .down,.part.animationed .line,.part.animationed .pic,.part.animationed .title,.part.animationed .ui-guide li{-webkit-animation-play-state:running!important;animation-play-state:running!important}
+.part-ios{background:url('../img/system/bg-ios.jpg') center top no-repeat}
+.part-ios .wrap{padding-top:165px}
+.part-android{background:url('../img/system/bg-android.jpg') center top no-repeat}
+.part-android .wrap{padding-top:135px}
+.ui-guide{line-height:45px;margin-top:35px;padding-left:15px}
+.ui-guide li{margin-left:-15px;height:45px;padding-left:25px;background:url('../img/system/guide_0c9cdf5.png') no-repeat}
+.ui-guide span{padding-right:30px;background:url('../img/system/guide_0c9cdf5.png') right -50px no-repeat}.part .ico-ios{background-position:0px 0px }.part .ico-android{background-position:0px -57px }.part .ico-ios,.part .ico-android{background-image: url(../img/pkg/document_z_e998563.png)}

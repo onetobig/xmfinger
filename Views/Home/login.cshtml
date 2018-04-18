@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Menu = "system";
+    ViewBag.Title = "海星广告平台_厦门指尖互动 - 企业一站式渠道营销与服务";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@section Head{
+    <link rel="stylesheet" type="text/css" href="/static/css/login_a519ab1.css" />
+}
+<div class="login">
+    <div class="subject">海星广告平台</div>
+    <form action="/home/login" class="form" id="js_login" method="post">
+        <div class="tip js-tip"></div>
+        <div class="row">
+            <input type="text" name="username" class="ipt js-user" placeholder="请输入账号">
+        </div>
+        <div class="row">
+            <input type="password" name="password" class="ipt js-pass" placeholder="请输入密码">
+        </div>
+        <div class="row c">
+            <input type="text" name="code" class="ipt ipt-code js-code" maxlength="4" placeholder="验证码">
+            <div class="img-code">
+                <img src="@Url.Action("GetImg", "Home")?t=@DateTime.Now.Ticks" id="Codeimg" class="js-imgCode">
+                <a href="javascript:void(0);" id="GL_StandardCode" class="js-changeCode">换一张</a>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="登录" class="btn js-submit">
+        </div>
+    </form>
+    <div class="help">
+        没有账号？忘记密码？
+        <a href="/?#contact">请联系对接商务</a>
+    </div>
+</div>
+
+@section Foot{
+<script>
+	require('login')
+</script>
+}

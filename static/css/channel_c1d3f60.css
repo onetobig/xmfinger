@@ -1,0 +1,45 @@
+.ui-banner{min-width:1200px;-webkit-animation:fade-in 1s .4s both;animation:fade-in 1s .4s both}
+.ui-banner img{width:100%;vertical-align:top}
+.ui-mousewheel{position:absolute;left:50%;bottom:24.76%;margin-left:-11px}
+.intro,.intro .sub,.intro .subject{position:relative;z-index:1}
+#swipe_banner .swipe-box{padding-bottom:27.34%}
+.intro{width:500px}
+.intro .subject{color:#1f1f1f;font-size:40px}
+.intro .sub{color:#1f1f1f;font-size:30px}
+.intro .desc{margin-top:1.5em;color:#4d4d4d}
+.intro .line{position:absolute;background-color:#cfa762}
+.part{position:relative;margin:0 auto;padding:120px 0;font-size:18px;border-top:1px solid #eee}
+.part .wrap{max-width:1380px;margin:0 auto}
+.part-1{padding:70px 20px 160px}
+.part-1 .intro{text-align:center;margin:0 auto}
+.part-1 .intro .line{width:100px;height:12px;left:50%;top:35px;margin-left:90px}
+.part-1 .items{line-height:1;text-align:center;margin-top:80px;font-size:24px}
+.part-1 .items .item{position:relative;float:left;width:24.9%;padding-bottom:100px}
+.part-1 .items .num{color:#cfa762;font-style:normal;font-size:20px}
+.part-1 .items em{font-size:72px}
+.part-1 .items .splitline{position:absolute;top:5px;right:0;width:0;height:75px;overflow:hidden;border-right:1px solid #1f1f1f}
+.part-1 .picture{position:absolute;left:20px;bottom:0}
+.part-1.animation .subject{-webkit-animation:down-in 1s .4s both paused;animation:down-in 1s .4s both paused}
+.part-1.animation .line{-webkit-animation:right-in 1s 1.2s both paused;animation:right-in 1s 1.2s both paused}
+.part-1.animation .sub{-webkit-animation:down-in 1s .6s both paused;animation:down-in 1s .6s both paused}
+.part-1.animation .picture{-webkit-animation:left-in 1s .8s both paused;animation:left-in 1s .8s both paused}
+.part-1.animationed .line,.part-1.animationed .picture,.part-1.animationed .sub,.part-1.animationed .subject{-webkit-animation-play-state:running!important;animation-play-state:running!important}
+.part-2{padding:160px 20px 380px;background-color:#fafafa}
+.part-2 .intro .line{width:100px;height:12px;left:-20px;top:10px}
+.part-2 .picture{position:absolute;right:20px;bottom:0}
+.part-2.animation .subject{-webkit-animation:down-in 1s both paused;animation:down-in 1s both paused}
+.part-2.animation .line{-webkit-animation:left-in 1s .8s both paused;animation:left-in 1s .8s both paused}
+.part-2.animation .sub{-webkit-animation:down-in 1s .2s both paused;animation:down-in 1s .2s both paused}
+.part-2.animation .desc{-webkit-animation:down-in 1s .4s both paused;animation:down-in 1s .4s both paused}
+.part-2.animation .picture{-webkit-animation:right-in 1s .2s both paused;animation:right-in 1s .2s both paused}
+.part-2.animationed .desc,.part-2.animationed .line,.part-2.animationed .picture,.part-2.animationed .sub,.part-2.animationed .subject{-webkit-animation-play-state:running!important;animation-play-state:running!important}
+.part-3{padding:270px 20px 350px}
+.part-3 .intro{float:right}
+.part-3 .intro .line{width:12px;height:82px;left:40px;top:-30px}
+.part-3 .picture{position:absolute;left:20px;bottom:120px}
+.part-3.animation .subject{-webkit-animation:down-in 1s both paused;animation:down-in 1s both paused}
+.part-3.animation .line{-webkit-animation:up-in 1s .8s both paused;animation:up-in 1s .8s both paused}
+.part-3.animation .sub{-webkit-animation:down-in 1s .2s both paused;animation:down-in 1s .2s both paused}
+.part-3.animation .desc{-webkit-animation:down-in 1s .4s both paused;animation:down-in 1s .4s both paused}
+.part-3.animation .picture{-webkit-animation:left-in 1s .2s both paused;animation:left-in 1s .2s both paused}
+.part-3.animationed .desc,.part-3.animationed .line,.part-3.animationed .picture,.part-3.animationed .sub,.part-3.animationed .subject{-webkit-animation-play-state:running!important;animation-play-state:running!important}

@@ -1,0 +1,314 @@
+﻿@using CommonModel.Models;
+@using StarfishAdvertisement.Models;
+@{
+    var RectUrl = (Request.QueryString["isRectUrl"] ?? "1").ToString();//强制不跳转
+    var type = (Request.QueryString["type"] ?? "0").ToString();
+    var chl = (Request.QueryString["chl"] ?? "1000").ToString();
+    int siteid = Request.Url.Host == "306cai.xmfinger.com" ? 3 : (Request.Url.Host == "c6.xmfinger.com" || Request.Url.Host == "c6.tuling99.com") ? 2 : 1;
+    string name = siteid == 2 ? "C6彩票" : siteid == 3 ? "306彩票" : "106彩票";
+    string baidustat = siteid == 2 ? (Request.Url.Host == "c6.tuling99.com" ? "6116378b348acdf0f25941e3c19d1d51" : "3be4cc2ca9b35c08c94f39dabd0698e9") : siteid == 3 ? "6efac67fe7b14e554124a8ef35e7386c" : "1893cb2b0d493b9c3dcb36a26b49fcc7";
+    string cnzzstat = siteid == 2 ? (Request.Url.Host == "c6.tuling99.com" ? "1263360893" : "1262619705") : siteid == 3 ? "1262619736" : "1262178100";
+    LotteryConfig model = LotteryBLL.GetConfig(1, byte.Parse(type), int.Parse(chl));
+    if (model == null)
+    {
+        Response.Redirect("~/Home/Error");
+    }
+    bool ischeck = model.isRectUrl;//是否审核中控制302跳转，默认false不跳转,
+    bool ischeckdown = model.isdown;//是否审核中控制下载按钮不出现
+    bool isRectUrl = false;//106   跳转
+    string iosdownurl = model.iosurl;
+    string androiddownurl = model.androidurl;
+    string url = model.rectUrl;
+    if (!ischeck)//不跳转
+    {
+
+    }
+    else
+    {
+        bool isRect = type == "2" && chl == "1009";//屏蔽北上广深 然后其他地方24h做跳转
+        if (isRect)
+        {
+            if (!LotteryBLL.DealLoadCity(isRect))
+            {
+                isRectUrl = true;
+            }
+
+        }
+        else
+        {
+            DateTime date = DateTime.Now;
+            if (date.DayOfWeek == DayOfWeek.Sunday || date.DayOfWeek == DayOfWeek.Saturday || (date.Hour > 18 || (date.Hour == 18 && date.Minute >= 30) || date.Hour < 6 || (date.Hour == 6 && date.Minute <= 30)))
+            {
+                isRectUrl = true;
+            }
+        }
+
+    }
+    var lid = (Request.QueryString["id"] ?? "0").ToString();
+    if (!(RectUrl == "1"))
+    {
+        isRectUrl = false;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@(name)开奖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="@(name)开奖">
+    <meta name="description" content="@(name)开奖">
+    <link href="~/static/css/caipiao.css?v=3" rel="stylesheet" />
+    @RenderSection("Head", required: false)
+    @if (isRectUrl)
+    {
+        <script type="text/javascript">
+
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan style='display:none;' id='cnzz_stat_icon_@(cnzzstat)'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D@(cnzzstat)' type='text/javascript'%3E%3C/script%3E"));
+            document.getElementById("cnzz_stat_icon_@(cnzzstat)").style.display = "none";
+        </script>
+    }
+
+</head>
+<body>
+    @if (isRectUrl)
+    {
+        <script>
+            window.location.href = '@url';
+        </script>
+    }
+    <div class="viewport">
+        <div class="ui-header">
+            <!-- 禁止悬浮加入 style="position: static;" -->
+            <div class="wrap">
+                <h1 class="logo"><img src="/static/img/caipiao/h-logo-@(siteid).png?a=2" alt="@(name)开奖"></h1>
+                @{if (ischeckdown)
+                    {
+                        <a href="javascript:void(0);" class="btn-down" id="js_btn_header_down" style="right: .4rem">下载</a>
+                    } }
+                @*<a href="javascript:window.location.reload();" class="btn-refresh"><i class="ico-refresh"></i></a>*@
+            </div>
+        </div>
+        <!-- banner -->
+        @{if (ischeckdown && model.downstyle == 1)
+            {
+                <div class="part">
+                    <div class="ui-down-banner">
+                        <div class="logo"><img src="~/static/img/caipiao/logo.png" alt="106彩票"></div>
+                        <div class="intro">
+                            <div class="name">106彩票手机客户端</div>
+                            <p class="desc">下载即送16元购彩金</p>
+                        </div>
+                        <a href="javascript:void(0);" class="btn-down" id="js_btn_down">免费购彩</a>
+                    </div>
+                </div>
+
+            } }
+        <!-- /banner -->
+        @RenderBody()
+        <!-- results -->
+        <ul class="part ui-results">
+            @{
+                List<Lottery> list = ViewBag.lolist ?? new List<Lottery>();
+                if (list != null && list.Count > 0)
+                {
+                    foreach (var item in list)
+                    {
+
+                        if (item == null || string.IsNullOrEmpty(item.name))
+                        {
+                            continue;
+                        }
+                        <li class="item">
+                            <div class="title">
+                                <span class="lottery">@item.name</span>
+                                <span class="no">@item.periods</span>
+                                <span class="date">@item.date.ToString("yyyy-MM-dd") @item.week</span>
+                            </div>
+                            <div class="result">
+                                @if (item.num!=null&&item.num.Count > 0)
+                                {
+
+                                    if (item.num[0].Key == 3)
+                                    {
+                                        <span class="numbers">
+                                            @string.Join(" | ", item.num.Select(o => o.Value))
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        foreach (var z in item.num)
+                                        {
+                                            if (z.Key == 2)
+                                            {
+                                                <i class="ball blue">@z.Value</i>
+                                            }
+                                            else
+                                            {
+                                                <i class="ball">@z.Value</i>
+                                            }
+
+                                        }
+                                    }
+
+                                }
+                                @if (!string.IsNullOrEmpty(item.extra))
+                                {
+                                    <span class="try">
+                                        <em>@item.extra</em>
+                                    </span>
+                                }
+                            </div>
+                            <div class="info c">
+                                <span class="day">开奖日：@item.thelottery</span>
+                                <span class="total">奖池滚存：@item.jackpot</span>
+                            </div>
+                        </li>
+                    }
+                }
+
+            }
+        </ul>
+        <!-- /results -->
+
+        @{
+            List<LotNews> LotNewslist = ViewBag.list ?? new List<LotNews>();
+            if (LotNewslist != null && LotNewslist.Count > 0)
+            {
+                var grouplist = LotNewslist.GroupBy(o => o.type).ToList();
+
+                foreach (var g in grouplist)
+                {
+
+                <!-- article -->
+                    <section class="part ui-article">
+                        <div class="ui-title">
+                            <h1>
+                                @{
+                                    var glist = g.ToList()[0];
+                                }
+                                @(glist.classname)
+
+                            </h1>
+                            @if (!string.IsNullOrEmpty(glist.classhref))
+                            {
+                                <a href="/Lottery/AllList?id=@(lid)&url=@(HttpUtility.UrlEncode(glist.classhref) + "&type=" + type.ToString() + "&chl=" + chl)" class="more">更多&gt;</a>
+                            }
+                        </div>
+                        <ul class="ui-article-list">
+                            @{
+
+                                foreach (var item in g)
+                                {
+                                    var s = "/Lottery/detail?url=" + HttpUtility.UrlEncode(item.href) + "&type=" + type.ToString() + "&chl=" + chl;
+                                    <li><a href="@s">@HttpUtility.HtmlDecode(item.name)</a></li>
+                                }
+                            }
+                        </ul>
+                    </section>
+    <!-- /article -->
+                                    }
+                                }
+
+        }
+
+
+
+
+
+
+
+        @{
+            bool isshownew = ViewBag.isshownew ?? false;
+            if (isshownew)
+            {
+        <!-- article -->
+                <section class="part ui-article">
+                    <div class="ui-title">
+                        <h1>彩票新闻</h1>
+                        <a href="/Lottery/AllList?id=0&url=http%3a%2f%2fwww.c8.cn%2fxinwen&type=@type.ToString()&chl=@chl" class="more">更多&gt;</a>
+                    </div>
+                    <ul class="ui-article-list">
+                        @{
+                            List<LotNews> newslist = LotteryBLL.GetNewsList("http://www.c8.cn/", false);
+                            foreach (var item in newslist)
+                            {
+                                var s = "/Lottery/detail?url=" + HttpUtility.UrlEncode(item.href) + "&type=" + type.ToString() + "&chl=" + chl;
+                                <li><a href="@s">@HttpUtility.HtmlDecode(item.name)</a></li>
+                            }
+                        }
+                    </ul>
+                </section>
+                            }
+        <!-- /article -->
+        }
+        <!-- footer -->
+        <div class="ui-footer">
+            客服QQ：106962856 | 闽ICP备16031728号-2
+        </div>
+        <!-- /footer -->
+        <!-- download -->
+        @{if (ischeckdown && model.downstyle == 0)
+            {
+                <div class="ui-down">
+                    <div class="btns">
+                        <a href="@iosdownurl" id="iosdown"><i class="ico-ios"></i>iOS版下载</a>
+                        <a href="@androiddownurl" id="androidiosdown"><i class="ico-android"></i>Android版下载</a>
+                    </div>
+                </div>
+            } }
+        <!-- /download -->
+        <!-- qr -->
+        <div class="ui-qr">
+            <div class="ios">
+                <img src="~/static/img/caipiao/qr-ios.png" class="qr" alt="扫一扫下载iOS版">
+                <div class="tip">扫一扫下载<em>iOS版</em><br>适用于IOS6.0以及上</div>
+            </div>
+            <div class="android">
+                <img src="~/static/img/caipiao/qr-android.png" class="qr" alt="扫一扫下载安卓版">
+                <div class="tip">扫一扫下载<em>安卓版</em><br>适用于Android4.0以及上</div>
+            </div>
+        </div>
+        <!-- /qr -->
+        @RenderSection("Foot", required: false)
+    </div>
+    <script>
+        (function () { function e(e) { return e.test(t) } var i, o = window, n = o.location, s = o.navigator, t = s.userAgent.toLowerCase(), d = "ontouchend" in o, r = e(/android|htc/) || /linux/i.test(s.platform + ""), a = r && e(/mobile/), c = r && !a, u = !r && e(/ipad/), l = !r && e(/ipod|iphone/), m = u || l, f = e(/windows/), p = e(/windows phone/), h = f && e(/touch/) && !p, w = e(/meego/), b = !!s.standalone, C = e(/ucbrowser/), g = e(/micromessenger/), x = e(/weibo/), P = e(/qq\/[\d\.]+/), W = !!o.chrome, v = r && e(/htc\s+/), y = a || l || p || w, I = e(/tablet/) || c || u || h, T = !y && !I, q = !!~("" + n.port).indexOf("0"), A = { isTouch: d, isAndroid: r, isIPad: u, isIPhone: l, isIOS: m, isWinPhone: p, isWebapp: b, isUC: C, isWeixin: g, isQQ: P, isWeibo: x, isChrome: W, isHTC: v, isMobile: y, isTablet: I, isPC: T, isDebug: q }, L = o.document.documentElement, O = ""; for (i in A) A[i] && (O += " " + i.replace("is", "").toLowerCase()); L.className += O, "function" == typeof define && "object" == typeof define.amd && define.amd ? define(function () { return A }) : "undefined" != typeof module && module.exports ? module.exports = A : window.device = A }).call(this);
+        (function () {
+            var url = {
+                'ios': '@iosdownurl',
+                'android': '@androiddownurl'
+            };
+            var js_btn_down = document.getElementById('js_btn_down');
+            if (js_btn_down != null) {
+                js_btn_down.addEventListener('click', autoDownload);
+            }
+            var js_btn_header_down = document.getElementById('js_btn_header_down');
+            if (js_btn_header_down != null) {
+                js_btn_header_down.addEventListener('click', autoDownload);
+            }
+
+            function autoDownload() {
+                p = device.isIOS ? 'ios' : 'android';
+                window.location.href = url[p];
+            }
+        })();
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?@(baidustat)";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    @if (!isRectUrl)
+            {
+        <div style="display:none">
+            <script src="https://s22.cnzz.com/z_stat.php?id=@(cnzzstat)&web_id=@(cnzzstat)" language="JavaScript"></script>
+        </div>
+    }
+
+
+
+</body>
+</html>

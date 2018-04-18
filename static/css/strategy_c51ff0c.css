@@ -1,0 +1,49 @@
+.ui-banner{min-width:1200px;-webkit-animation:fade-in 1s .4s both;animation:fade-in 1s .4s both}
+.ui-banner img{width:100%;vertical-align:top}
+.ui-mousewheel{position:absolute;left:50%;bottom:24.76%;margin-left:-11px}
+#swipe_banner .swipe-box{padding-bottom:27.34%}
+.intro{width:500px}
+.intro .subject{color:#1f1f1f;font-size:40px}
+.intro .sub{color:#1f1f1f;font-size:30px}
+.intro .desc{margin-top:1.5em;color:#4d4d4d}
+.part{max-width:1500px;margin:0 auto;padding:120px 0;font-size:18px;border-top:1px solid #eee}
+.animation .subject{-webkit-animation:down-in 1s .2s both paused;animation:down-in 1s .2s both paused}
+.animation .sub{-webkit-animation:down-in 1s .4s both paused;animation:down-in 1s .4s both paused}
+.animation .desc{-webkit-animation:down-in 1s .6s both paused;animation:down-in 1s .6s both paused}
+.animation .picture{-webkit-animation:down-in 1s .8s both paused;animation:down-in 1s .8s both paused}
+.animationed .desc,.animationed .picture,.animationed .sub,.animationed .subject{-webkit-animation-play-state:running!important;animation-play-state:running!important}
+.part-1 .intro{float:left;margin-top:100px;padding-left:130px}
+.part-1 .picture{position:relative;float:right;width:429px;height:414px;background:url('../img/strategy/part-1-picture_317268c.png') no-repeat;margin-right:130px}
+.part-1 .picture span{position:absolute}
+.part-1 .txt-1{width:250px;left:50%;top:-40px;margin-left:-125px;text-align:center}
+.part-1 .txt-2{width:120px;top:130px;right:-130px}
+.part-1 .txt-3,.part-1 .txt-4{top:420px;width:250px;text-align:center}
+.part-1 .txt-3{right:80px;margin-right:-125px}
+.part-1 .txt-4{left:100px;margin-left:-125px}
+.part-1 .txt-5{top:145px;left:0;width:130px;margin-left:-140px;text-align:right}
+.part-2 .intro{float:right;margin-top:30px}
+.part-2 .picture{position:relative;float:left;width:750px;height:280px;text-align:center;background:url('../img/strategy/part-2-picture_4c1a1e0.png') center top no-repeat}
+.part-2 .picture span{position:absolute;bottom:90px;width:5em;margin-left:-2.5em}
+.part-2 .txt-1{left:55px}
+.part-2 .txt-2{left:215px}
+.part-2 .txt-3{left:375px}
+.part-2 .txt-4{left:535px}
+.part-2 .txt-5{left:695px}
+.part-3 .intro{float:left;padding-left:130px;margin-top:30px}
+.part-3 .picture{float:right;position:relative;width:324px;height:275px;background:url('../img/strategy/part-3-picture_73a1e40.png') no-repeat;padding-right:200px}
+.part-3 .picture span{position:absolute}
+.part-3 .txt-1{left:350px;top:0}
+.part-3 .txt-2{left:300px;top:80px}
+.part-3 .txt-3{left:350px;top:160px}
+.part-3 .txt-4{left:300px;top:250px}
+.part-4 .intro{float:right;margin-top:90px}
+.part-4 .picture{position:relative;float:left;width:500px;height:407px;background:url('../img/strategy/part-4-picture_3cd3aa0.png') right top no-repeat}
+.part-4 .picture span{position:absolute;width:6em}
+.part-4 .txt-1{left:200px;top:20px}
+.part-4 .txt-2{left:20px;top:105px}
+.part-4 .txt-3{left:200px;top:185px}
+.part-4 .txt-4{left:20px;top:265px}
+.part-4 .txt-5{left:200px;top:345px}
+@media  screen and (max-width:1500px){.part{padding-left:20px;padding-right:20px}
+.part-1 .intro,.part-3 .intro{padding-left:0}
+.part-2 .intro{width:450px}}

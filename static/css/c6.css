@@ -1,0 +1,126 @@
+﻿@charset "utf-8";
+/* CSS Document 
+Use for:	xxxx
+Version:	1.0
+Date:		2014/09/13
+Author:		glq
+Update:		
+*/
+/* CSS Reset */
+body, div, span, applet, object, iframe,input, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, hr { padding: 0; margin: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+caption{ text-align:left;}
+ins{ text-decoration: none;}
+del{ text-decoration: line-through;}
+input,select{ vertical-align:middle;}
+input,textarea,select{font:12px Tahoma,Geneva, Arial, Helvetica, sans-serif; }
+fieldset, img { border: 0; }
+address,code,caption,th,cite,dfn,em,var{font-style:normal;}
+ol, ul { list-style: none; }
+h1, h2, h3, h4, h5, h6 {font-size: 100%; font-weight:normal }
+q:before, q:after { content:""; }
+legend{ display:none;}
+a:hover{outline:0;}
+a,ins{text-decoration:none}
+.clear{clear:both;}
+body{font:12px/1.5 'PingFang SC','Helvetica Neue',Helvetica,'Hiragino Sans GB',STHeitiSC-Light,'Microsoft YaHei',Arial,sans-serif;background-color:#f4f4f4;min-width:320px;}
+/* CSS body */
+.top{width:100%;position:relative;}
+.top img{vertical-align:top;}
+.btn-down{position:absolute;right:20px;top:50%;width:90px;height:30px;line-height:30px;margin-top:-15px;border:1px solid #fff;font-size:13px;color:#fff;text-align:center;border-radius:5px;}
+.btn-down:active{background-color:#f5f5f5;color:#4698e9;}
+/* 选择入口 */
+.choice{width:100%;position:relative;}
+.choice img{vertical-align:top;}
+.choice-list{width:90%;margin:auto;position:absolute;bottom:5px;left:5%;text-align:center;color:#f26921;text-align:center;border-radius:6px;-webkit-box-shadow:0 .3rem .7rem rgba(255,175,135,.5);box-shadow:0 .3rem .7rem rgba(109,205,255,.5);background-color:#fff;}
+.choice-list ul{}
+.choice-list .wenzi{text-align:center;display:block;margin:4px 0 12px 0;font-size:14px;}
+.choice-list li{float:left;width:24%;padding-left:1%;line-height:12px;border-radius:6px;}
+.choice-list li:active{background-color:#f5f5f5;color:#4698e9;}
+.choice-list a{display:block;color:#000;}
+.choice-list img{width:65%;height:65%;}
+/* 热门彩种 */
+.biaoti1{font-size:18px;color:#4583e9;line-height:36px;margin-left:3%;}
+.remen a{background-color:#fff;display:block;}
+.remen a:active{background-color:#f5f5f5;}
+.remen ul{margin:0 2%;}
+.remen li{float:left;width:48%;line-height:12px;margin:1%;display:block;}
+.remen .wenzi2{float:left;display:block;width:68%;}
+.remen .wenzi2 .text1{margin:15% 0 0 14%;display:block;font-size:16px;color:#000;}
+.remen .wenzi2 .text2{margin:5% 0 0 14%;display:block;font-size:12px;color:#a0a0a0;}
+.remen img{width:32%;vertical-align:top;}
+/* 小标题 */
+.ui-title{height:36px;line-height:36px;margin-top:10px;background-color:#fff;}
+.ui-title h1{float:left;font-size:18px;color:#4583e9;margin-left:8px;}
+.ui-title .more{float:right;color:#aaa;margin-tight:8px;}
+.box{display:block;background-color:#fff;-webkit-box-shadow:0 6px 1px rgba(255,175,135,.5);box-shadow:0 1px 4px rgba(109,205,255,.5);}
+/* 高频彩 */
+.gaocaipin{display:block;}
+.gaocaipin .border-right{border-right:1px #cccccc solid;}
+.gaocaipin ul{}
+.gaocaipin li{float:left;width:33%;text-align:center;font-size:14px;color:#010101;line-height:40px;display:block;border-bottom:1px #cccccc solid;}
+.gaocaipin a{color:#010101;}
+.gaocaipin a:hover{outline:0;color:#000}
+.gaocaipin li:active{background-color:#f5f5f5;color:#4698e9;}
+
+/* 开奖 */
+.c:after,.c:before{display:table;content:''}
+.c:after{clear:both}
+.c{*zoom:1}
+.part{margin-bottom:.3rem;background-color:#fff;}
+.ui-results .title{margin-bottom:.4rem;line-height:30px;margin-left:8px;}
+.ui-results .result{margin-bottom:18px;line-height:30px;margin-left:8px;}
+.ball{display:inline-block;width:30px;height:30px;line-height:30px;font-style:normal;font-size:1.25em;vertical-align:middle;color:#fff;border-radius:50%;text-align:center;background-color:#47b0ea;font-weight:bold;}
+.ball.red{color:#fff;background-color:#f694bb;}
+.ui-results .item{border-bottom:1px solid #c4c4c4;padding:.4rem .4rem .4rem .7rem}
+.ui-title{border-bottom:1px solid #c4c4c4;padding:0 .8rem}
+.ui-results .lottery{font-size:16px;margin-right:1em}
+.ui-results .date,.ui-results .no{color:#aaa;font-size:14px;}
+.ui-results .no{margin-right:1em}
+.ui-results .numbers{font-size:16px;color:#888}
+.ui-results .try{margin-left:1em;color:#aaa}
+.ui-results .day{float:left;font-size:14px;color:#aaa;margin-left:8px;}
+.ui-results .total{float:right;font-size:14px;color:#aaa}
+.ui-results .shiji{color:#aaa;font-size:14px;margin-left:16px;}
+
+/* 彩票新闻 */
+.ui-article-list{white-space:nowrap;background-color:#fff;}
+.ui-article-list ul{margin-left:8px;}
+.ui-article-list a{display:block;color:#444444;font-size:14px;line-height:40px;border-bottom:1px solid #c4c4c4;padding-left:24px;}
+.ui-article-list a:active{background-color:#f5f5f5;color:#000}
+
+/* 联系客服 */
+.ui-footer{text-align:center;font-size:13px;line-height:60px;margin-bottom:60px;color:#aaaaaa;}
+.ui-footer a{color:#47b0ea;}
+.ui-footer a:active{color:#2e8abd;}
+
+/* 底部banner */
+.ui-down{position:fixed;bottom:0;z-index:99999;width:100%;}
+.ui-down .close{position:absolute;top:2%;right:1%;width:3%}
+.ui-down img{vertical-align:top;}
+
+/* 开奖展示 */
+.box2{width:94%;margin:0 auto;background-color:#fff;padding:10px 3% 7px 3%;}
+.float_l{float:left;}
+.float_r{float:right;}
+.box2 .small_icon{float:left;width:20%;margin-top:8px;}
+.box2 .detail{float:left;width:80%;border-bottom:1px solid #cccccc;padding-bottom:10px;margin-bottom:8px;}
+.box2 .lottery{font-size:16px;}
+.box2 .date,.box2 .no{color:#aaa;font-size:14px;}
+.box2 .date{margin-left:8px;}
+.box2 .numbers{font-size:16px;color:#888;margin-right:4px;}
+.box2 .try{color:#aaa}
+.box2 .day{font-size:14px;color:#aaa;}
+.box2 .total{font-size:14px;color:#aaa}
+
+
+/* 文章 */
+.ui-article-detail{padding:20px 20px;}
+.ui-article-detail h1{font-size:25px;line-height:30px;}
+.ui-article-detail .info{width:120px;margin:10px auto ;text-align:center;padding-bottom:6px;;border-bottom:1px solid #000;}
+.ui-article-detail .content{font-size:15px;line-height:30px;word-break:break-all;margin:30px 0 60px 0;}
+.content p{margin-bottom:1.5em}
+.ui-article-detail .content img{width:100%;vertical-align:top;}
+
+
+

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="海星广告平台,指尖互动,厦门指尖互动,产品推广,APP推广,品牌营销,SEO,ASO,SEM,媒体宣传" />
+    <meta name="description" content="厦门指尖互动专注于移动互联网、致力于为企业提供更专业更实效的一站式渠道拓展、移动广告营销服务，公司服务内容包括互联网的产品渠道分发与推广、媒体投放、公司品牌营销、新媒体营销、广告数据优化以及流量采购等定制化营销方案。一站式渠道服务，省时省心；设置分平台承包、多渠道分发，定制推广方案；支持效果评估，大数据分析指导渠道优化；根据效果结算，缩减成本，提高流量效果。" />
+    <link rel="stylesheet" type="text/css" href="~/static/css/base_3b4fa30.css" />
+    @RenderSection("Head", required: false)
+</head>
+<body data-menu="@ViewBag.Menu">
+    <div class="viewport">
+        @{ 
+            if (ViewBag.Menu== "document"|| ViewBag.Menu == "system")
+            {
+                Html.RenderPartial("Header");
+            }
+            else
+            {
+                Html.RenderPartial("HeaderDefault");
+            }
+           }
+        @RenderBody()
+        @{ Html.RenderPartial("Footer");}
+        <script type="text/javascript" src="/static/lib/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="/static/js/core_7b8b822.js"></script>
+        <script type="text/javascript" src="/static/js/app_3033c7f.js"></script>
+        @RenderSection("Foot", required: false)
+    </div>
+</body>
+</html>

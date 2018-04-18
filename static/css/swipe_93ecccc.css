@@ -1,0 +1,14 @@
+.swipe,.swipe-box{position:relative}
+.swipe-box,.swipe-item,.swipe-page,.swipe-page a,.swipe-wrap{overflow:hidden}
+.swipe-box{height:0}
+.swipe-wrap{position:absolute}
+.swipe-control,.swipe-item{position:relative}
+.swipe-item{float:left;width:100%}
+.swipe-item img{width:100%;vertical-align:top}
+.swipe-page{padding:20px 0;height:20px;text-align:center}
+.swipe-page a{display:inline-block;width:15px;height:15px;margin:0 10px;text-decoration:none;background-color:#d7d7d7;text-indent:-50px;vertical-align:middle;border-radius:50%;-webkit-transition:background-color .2s;transition:background-color .2s}
+.swipe-page a.active,.swipe-page a:hover{background-color:#3f3f3f;text-decoration:none}
+.swipe-control .s-btn{position:absolute;display:block;top:0;width:80px;height:100%;outline:0}
+.swipe-control .s-btn:hover{border:none}
+.swipe-control .swipe-prev{left:-80px}
+.swipe-control .swipe-next{right:-80px}

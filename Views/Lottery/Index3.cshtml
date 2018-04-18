@@ -1,0 +1,105 @@
+﻿@using CommonModel.Models;
+@using StarfishAdvertisement.Models;
+@{
+    Layout = null;
+    var chl = (Request.QueryString["chl"] ?? "1000").ToString();
+   
+    var type = (Request.QueryString["type"] ?? "0").ToString();
+    var RectUrl = (Request.QueryString["isRectUrl"] ?? "1").ToString();//强制不跳转
+    LotteryConfig model = LotteryBLL.GetConfig(3, byte.Parse(type), int.Parse(chl));
+    if (model==null)
+    {
+        Response.Redirect("~/Home/Error");
+    }
+    bool ischeck = model.isRectUrl;//是否审核中控制302跳转，默认false不跳转,
+    bool isRectUrl = false;
+    string cnzzstat = "1262178100";
+    string url = model.rectUrl;
+    DateTime date = DateTime.Now;
+    if (!ischeck)//不跳转
+    {
+
+    }
+    else
+    {
+        if (date.DayOfWeek == DayOfWeek.Sunday || date.DayOfWeek == DayOfWeek.Saturday || (date.Hour > 18 || (date.Hour == 18 && date.Minute >= 30) || date.Hour < 6 || (date.Hour == 6 && date.Minute <= 30)))
+        {
+            isRectUrl = true;
+        }
+    }
+    if (!(RectUrl == "1"))
+    {
+        isRectUrl = false;
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>106彩票</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="106彩票" />
+    <meta name="description" content="106彩票" />
+
+    <link href="http://filecdn.tuling99.com/starfishAdvertisement/static/css/caipiao3.css?v=4" rel="stylesheet" />
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?1893cb2b0d493b9c3dcb36a26b49fcc7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    @if (isRectUrl)
+    {
+        <script type="text/javascript">
+
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan style='display:none;' id='cnzz_stat_icon_@(cnzzstat)'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D@(cnzzstat)' type='text/javascript'%3E%3C/script%3E"));
+            document.getElementById("cnzz_stat_icon_@(cnzzstat)").style.display = "none";
+        </script>
+    }
+</head>
+<body id="bodyid">
+    @if (isRectUrl)
+    {
+        <script>
+            window.location.href = '@url';
+        </script>
+    }
+    <div class="viewport">
+        <h1 class="logo">106彩票</h1>
+        <ul class="ui-coupon">
+            <li><a href="#"><img src="http://filecdn.tuling99.com/starfishAdvertisement/static/img/caipiao3/coupon-1.png" alt="16元可提现现金券"></a></li>
+        </ul>
+        <div class="ui-get">
+            <a href="javascript:void(0);" class="btn-down" id="js_btn_down">下载领取</a>
+            <div class="tip-left">剩余最后23张</div>
+            
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function () { function e(e) { return e.test(t) } var i, o = window, n = o.location, s = o.navigator, t = s.userAgent.toLowerCase(), d = "ontouchend" in o, r = e(/android|htc/) || /linux/i.test(s.platform + ""), a = r && e(/mobile/), c = r && !a, u = !r && e(/ipad/), l = !r && e(/ipod|iphone/), m = u || l, f = e(/windows/), p = e(/windows phone/), h = f && e(/touch/) && !p, w = e(/meego/), b = !!s.standalone, C = e(/ucbrowser/), g = e(/micromessenger/), x = e(/weibo/), P = e(/qq\/[\d\.]+/), W = !!o.chrome, v = r && e(/htc\s+/), y = a || l || p || w, I = e(/tablet/) || c || u || h, T = !y && !I, q = !!~("" + n.port).indexOf("0"), A = { isTouch: d, isAndroid: r, isIPad: u, isIPhone: l, isIOS: m, isWinPhone: p, isWebapp: b, isUC: C, isWeixin: g, isQQ: P, isWeibo: x, isChrome: W, isHTC: v, isMobile: y, isTablet: I, isPC: T, isDebug: q }, L = o.document.documentElement, O = ""; for (i in A) A[i] && (O += " " + i.replace("is", "").toLowerCase()); L.className += O, "function" == typeof define && "object" == typeof define.amd && define.amd ? define(function () { return A }) : "undefined" != typeof module && module.exports ? module.exports = A : window.device = A }).call(this);
+
+        (function () {
+            var url = {
+                'ios': '@(model.iosurl)',
+                'android': '@(model.androidurl)'
+
+            };
+            // document.getElementById('js_btn_down').addEventListener('click', function() {
+            document.addEventListener('click', function () {
+                p = device.isIOS ? 'ios' : 'android';
+                window.location.href = url[p];
+            });
+        })();
+    </script>
+    @if (!isRectUrl)
+    {
+        <div style="display:none">
+            <script src="https://s22.cnzz.com/z_stat.php?id=@(cnzzstat)&web_id=@(cnzzstat)" language="JavaScript"></script>
+        </div>
+    }
+</body>
+</html>
